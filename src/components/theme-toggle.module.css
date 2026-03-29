@@ -1,0 +1,75 @@
+.toggle {
+  position: relative;
+  display: inline-grid;
+  place-items: center;
+  height: 2.85rem;
+  width: 2.85rem;
+  flex-shrink: 0;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--nav-text);
+  cursor: pointer;
+  transition:
+    transform 180ms ease,
+    background-color 180ms ease,
+    box-shadow 180ms ease,
+    opacity 180ms ease;
+}
+
+.toggle:hover {
+  transform: translateY(-1px);
+  background: rgba(255, 255, 255, 0.12);
+  box-shadow: 0 12px 26px rgba(0, 0, 0, 0.14);
+}
+
+.toggle:disabled {
+  cursor: default;
+  opacity: 0.72;
+}
+
+.icon {
+  position: absolute;
+  display: inline-grid;
+  place-items: center;
+  height: 1.3rem;
+  width: 1.3rem;
+  transition:
+    opacity 180ms ease,
+    transform 220ms ease;
+}
+
+.icon svg {
+  height: 100%;
+  width: 100%;
+}
+
+.sun {
+  opacity: 1;
+  transform: scale(1) rotate(0deg);
+  color: #ffe29a;
+}
+
+.moon {
+  opacity: 0;
+  transform: scale(0.72) rotate(-18deg);
+  color: #d9e4ff;
+}
+
+:global([data-theme="dark"]) .sun {
+  opacity: 0;
+  transform: scale(0.72) rotate(18deg);
+}
+
+:global([data-theme="dark"]) .moon {
+  opacity: 1;
+  transform: scale(1) rotate(0deg);
+}
+
+@media (max-width: 767px) {
+  .toggle {
+    align-self: flex-end;
+    height: 2.6rem;
+    width: 2.6rem;
+  }
+}

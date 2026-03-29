@@ -1,0 +1,1000 @@
+.resumeShell {
+  min-height: 100vh;
+}
+
+.resumeTopbar {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  padding: 1rem var(--page-gutter) 0;
+}
+
+.resumeTopbarInner {
+  margin: 0 auto;
+  display: flex;
+  width: 100%;
+  max-width: var(--page-max-width);
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: var(--nav-surface);
+  backdrop-filter: blur(20px);
+  border-radius: 999px;
+  padding: 0.85rem 1rem;
+  box-shadow:
+    0 20px 60px rgba(11, 10, 10, 0.16),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+.resumeBrand {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.28em;
+  color: var(--nav-text);
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.resumeTopbarActions {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.75rem;
+}
+
+.resumeNav {
+  display: flex;
+  min-width: 0;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 0.4rem;
+}
+
+.resumeNav a {
+  border-radius: 999px;
+  padding: 0.55rem 0.85rem;
+  font-size: 0.9rem;
+  color: var(--nav-text);
+  white-space: nowrap;
+  transition:
+    background-color 160ms ease,
+    color 160ms ease,
+    transform 160ms ease;
+}
+
+.resumeNav a:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateY(-1px);
+}
+
+.resumeContainer {
+  margin: 0 auto;
+  display: flex;
+  width: 100%;
+  max-width: var(--page-max-width);
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 1.5rem var(--page-gutter) 4rem;
+  scroll-margin-block-start: var(--anchor-offset);
+}
+
+.resumeHero,
+.resumeSection {
+  scroll-margin-block-start: var(--anchor-offset);
+  border: 1px solid var(--border-soft);
+  background: var(--surface);
+  backdrop-filter: blur(22px);
+  border-radius: 2rem;
+  box-shadow:
+    var(--shadow-lg),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  transition:
+    background-color 220ms ease,
+    border-color 220ms ease,
+    box-shadow 220ms ease,
+    transform 220ms ease;
+}
+
+.resumeHero {
+  display: grid;
+  gap: 1.25rem;
+  padding: 1.5rem;
+}
+
+.resumeHeroCopy {
+  position: relative;
+  overflow: hidden;
+  border-radius: 1.7rem;
+  background: var(--hero-surface);
+  padding: 2rem;
+  color: var(--hero-text);
+  isolation: isolate;
+}
+
+.resumeHeroCopy::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(120deg, rgba(255, 255, 255, 0.12), transparent 30%),
+    linear-gradient(180deg, transparent, rgba(255, 255, 255, 0.05));
+  pointer-events: none;
+}
+
+.resumeHeroCopy::after {
+  content: "";
+  position: absolute;
+  inset: auto -10% -30% auto;
+  height: 220px;
+  width: 220px;
+  border-radius: 999px;
+  background: radial-gradient(circle, rgba(255, 221, 201, 0.42), transparent 68%);
+  filter: blur(6px);
+}
+
+:global([data-theme="dark"]) .resumeHeroCopy::after {
+  background: radial-gradient(circle, rgba(136, 164, 255, 0.42), transparent 68%);
+}
+
+.resumeHeroOrbit {
+  position: absolute;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  pointer-events: none;
+}
+
+.resumeHeroOrbitOne {
+  top: -3rem;
+  right: -2rem;
+  height: 16rem;
+  width: 16rem;
+  animation: orbitFloat 8s ease-in-out infinite;
+}
+
+.resumeHeroOrbitTwo {
+  bottom: -5rem;
+  right: 12rem;
+  height: 8rem;
+  width: 8rem;
+  animation: orbitFloat 6.4s ease-in-out infinite reverse;
+}
+
+.resumeEyebrow {
+  position: relative;
+  z-index: 1;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: rgba(255, 247, 241, 0.72);
+}
+
+.resumeHero h1 {
+  position: relative;
+  z-index: 1;
+  margin-top: 1rem;
+  max-width: 10ch;
+  font-size: clamp(2.9rem, 1.8rem + 4vw, 5.6rem);
+  line-height: 0.94;
+  letter-spacing: -0.06em;
+}
+
+.resumeHeroDescription {
+  position: relative;
+  z-index: 1;
+  margin-top: 1.3rem;
+  max-width: 52ch;
+  font-size: 1rem;
+  line-height: 1.9;
+  color: var(--hero-muted);
+}
+
+.resumeHeroActions {
+  position: relative;
+  z-index: 1;
+  margin-top: 1.75rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+}
+
+.resumeButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  padding: 0.9rem 1.2rem;
+  font-size: 0.96rem;
+  font-weight: 600;
+  transition:
+    transform 160ms ease,
+    background-color 160ms ease,
+    color 160ms ease,
+    border-color 160ms ease,
+    box-shadow 160ms ease;
+}
+
+.resumeButton:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 12px 26px rgba(0, 0, 0, 0.14);
+}
+
+.resumeButtonPrimary {
+  background: var(--hero-button);
+  color: var(--hero-button-text);
+}
+
+.resumeButtonSecondary {
+  border: 1px solid rgba(255, 247, 241, 0.28);
+  color: var(--hero-text);
+}
+
+.resumeButtonSecondary:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.resumeHeroNote {
+  position: relative;
+  z-index: 1;
+  margin-top: 1.8rem;
+  display: inline-flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 1.15rem;
+  background: rgba(255, 255, 255, 0.08);
+  padding: 1rem 1.1rem;
+  backdrop-filter: blur(12px);
+}
+
+.resumeHeroNote span {
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(255, 247, 241, 0.66);
+}
+
+.resumeHeroNote p {
+  max-width: 32ch;
+  line-height: 1.65;
+  color: var(--hero-text);
+}
+
+.resumeHeroPanel,
+.resumeInfoCard,
+.resumeSkillCard,
+.resumeArchiveCard,
+.resumeProjectCard,
+.resumeTimelineItem,
+.resumeDetailCard,
+.resumeEducationCard {
+  border: 1px solid var(--border-soft);
+  background: var(--surface-strong);
+  border-radius: 1.6rem;
+  transition:
+    border-color 220ms ease,
+    background-color 220ms ease,
+    box-shadow 220ms ease,
+    transform 220ms ease;
+}
+
+.resumeHeroPanel {
+  position: relative;
+  overflow: hidden;
+  padding: 1.35rem;
+}
+
+.resumeHeroPanel::before {
+  content: "";
+  position: absolute;
+  inset: auto auto -2rem -2rem;
+  height: 7rem;
+  width: 7rem;
+  border-radius: 999px;
+  background: radial-gradient(circle, rgba(197, 111, 71, 0.24), transparent 70%);
+}
+
+:global([data-theme="dark"]) .resumeHeroPanel::before {
+  background: radial-gradient(circle, rgba(136, 164, 255, 0.24), transparent 70%);
+}
+
+.resumeHeroPanelHeader {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.resumeHeroPanelHeader p,
+.resumeHeroPanelHeader span {
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.resumeHeroPanelHeader p {
+  color: var(--accent-strong);
+}
+
+.resumeHeroPanelHeader span {
+  color: var(--ink-soft);
+}
+
+.resumeFacts {
+  position: relative;
+  z-index: 1;
+  margin-top: 1rem;
+  display: grid;
+  gap: 0.8rem;
+}
+
+.resumeFacts li {
+  display: grid;
+  gap: 0.28rem;
+  padding-bottom: 0.8rem;
+  border-bottom: 1px solid rgba(128, 128, 128, 0.12);
+}
+
+.resumeFacts li:last-child {
+  padding-bottom: 0;
+  border-bottom: 0;
+}
+
+.resumeFacts span,
+.resumeInfoCard span,
+.resumeEducationCard span,
+.resumeProjectMeta span,
+.resumeDetailHead span,
+.resumeTimelineHead p,
+.resumeArchiveCard span {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.resumeFacts span,
+.resumeInfoCard span,
+.resumeEducationCard span,
+.resumeProjectMeta span,
+.resumeDetailHead span,
+.resumeTimelineHead p {
+  color: var(--ink-soft);
+}
+
+.resumeFacts strong,
+.resumeFacts a {
+  font-size: 1rem;
+  line-height: 1.55;
+  color: var(--foreground);
+}
+
+.resumeFacts a:hover,
+.resumeArchiveCard:hover strong,
+.resumeLinkRow a:hover,
+.resumeInfoCard a:hover {
+  color: var(--accent-strong);
+}
+
+.resumeHighlightGrid {
+  position: relative;
+  z-index: 1;
+  margin-top: 1.25rem;
+  display: grid;
+  gap: 0.75rem;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.resumeHighlightGrid article {
+  border-radius: 1.2rem;
+  background: var(--accent-soft);
+  padding: 0.95rem;
+}
+
+.resumeHighlightGrid span {
+  display: block;
+  color: var(--accent-strong);
+}
+
+.resumeHighlightGrid strong {
+  display: block;
+  margin-top: 0.5rem;
+  font-size: 1.15rem;
+  color: var(--foreground);
+}
+
+.resumeSection {
+  position: relative;
+  overflow: hidden;
+  padding: 1.5rem;
+}
+
+.resumeSection::after {
+  content: "";
+  position: absolute;
+  inset: auto -5rem -5rem auto;
+  height: 12rem;
+  width: 12rem;
+  border-radius: 999px;
+  background: radial-gradient(circle, rgba(197, 111, 71, 0.08), transparent 70%);
+  pointer-events: none;
+}
+
+:global([data-theme="dark"]) .resumeSection::after {
+  background: radial-gradient(circle, rgba(136, 164, 255, 0.08), transparent 70%);
+}
+
+.resumeSectionHeading {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.resumeSectionHeading p {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--accent-strong);
+}
+
+.resumeSectionHeading h2 {
+  max-width: 18ch;
+  font-size: clamp(1.8rem, 1.3rem + 1.4vw, 2.7rem);
+  line-height: 1.05;
+  font-weight: 600;
+  color: var(--foreground);
+}
+
+.resumeSectionDescription {
+  position: relative;
+  z-index: 1;
+  margin-top: 1.4rem;
+  max-width: 72ch;
+  font-size: 0.98rem;
+  line-height: 1.85;
+  color: var(--ink-muted);
+}
+
+.resumeAboutGrid,
+.resumeSkillsGrid,
+.resumeArchiveGrid,
+.resumeEducationGrid {
+  position: relative;
+  z-index: 1;
+  margin-top: 1.5rem;
+  display: grid;
+  gap: 1rem;
+}
+
+.resumeAboutGrid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.resumeInfoCard,
+.resumeSkillCard,
+.resumeArchiveCard,
+.resumeEducationCard {
+  padding: 1.2rem;
+}
+
+.resumeInfoCard strong,
+.resumeInfoCard a,
+.resumeSkillCard h3,
+.resumeArchiveCard strong,
+.resumeEducationCard h3,
+.resumeProjectCard h3,
+.resumeTimelineHead h3,
+.resumeDetailHead h4 {
+  color: var(--foreground);
+}
+
+.resumeInfoCard strong,
+.resumeInfoCard a {
+  display: block;
+  margin-top: 0.5rem;
+  font-size: 1.05rem;
+  line-height: 1.5;
+}
+
+.resumeSkillCard h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.resumeTagList {
+  margin-top: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.resumeTagList span,
+.resumeRoleList span {
+  border-radius: 999px;
+  background: var(--accent-soft);
+  padding: 0.45rem 0.75rem;
+  font-size: 0.88rem;
+  color: var(--foreground);
+}
+
+.resumeArchiveCard,
+.resumeProjectCard,
+.resumeTimelineItem {
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+.resumeArchiveCard:hover,
+.resumeProjectCard:hover,
+.resumeTimelineItem:hover,
+.resumeInfoCard:hover,
+.resumeSkillCard:hover,
+.resumeEducationCard:hover {
+  transform: translateY(-2px);
+  border-color: var(--border-strong);
+  box-shadow: var(--shadow-md);
+}
+
+.resumeArchiveCard span {
+  color: var(--accent-strong);
+}
+
+.resumeArchiveCard strong {
+  display: block;
+  margin-top: 0.85rem;
+  font-size: 1.08rem;
+  line-height: 1.45;
+}
+
+.resumeArchiveCard p,
+.resumeEducationCard p,
+.resumeDetailCard p,
+.resumeTimelineSummary,
+.resumeProjectSummary,
+.resumeProjectBullets li {
+  color: var(--ink-muted);
+}
+
+.resumeArchiveCard p {
+  margin-top: 0.85rem;
+  line-height: 1.75;
+}
+
+.resumeProjectList,
+.resumeTimeline {
+  position: relative;
+  z-index: 1;
+  margin-top: 1.5rem;
+  display: grid;
+  gap: 1rem;
+}
+
+.resumeProjectCard,
+.resumeTimelineItem {
+  padding: 1.3rem;
+}
+
+.resumeProjectMeta,
+.resumeDetailHead {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.7rem;
+}
+
+.resumeProjectCard h3,
+.resumeTimelineHead h3 {
+  margin-top: 0.8rem;
+  font-size: clamp(1.55rem, 1.15rem + 1vw, 2.05rem);
+  font-weight: 600;
+}
+
+.resumeProjectSummary {
+  margin-top: 0.9rem;
+  max-width: 68ch;
+  line-height: 1.8;
+}
+
+.resumeProjectBullets {
+  margin-top: 1rem;
+  display: grid;
+  gap: 0.65rem;
+  padding-left: 1.2rem;
+}
+
+.resumeProjectBullets li {
+  line-height: 1.8;
+}
+
+.resumeProjectFooter {
+  margin-top: 1.1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.resumeLinkRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.resumeLinkRow a {
+  font-weight: 600;
+  color: var(--foreground);
+}
+
+.resumeTimeline {
+  position: relative;
+}
+
+.resumeTimeline::before {
+  content: "";
+  position: absolute;
+  left: 1rem;
+  top: 0.75rem;
+  bottom: 0.75rem;
+  width: 1px;
+  background: linear-gradient(180deg, transparent, var(--accent), transparent);
+}
+
+.resumeTimelineItem {
+  position: relative;
+  padding-left: 2.2rem;
+}
+
+.resumeTimelineItem::before {
+  content: "";
+  position: absolute;
+  left: 0.65rem;
+  top: 1.45rem;
+  height: 0.8rem;
+  width: 0.8rem;
+  border-radius: 999px;
+  background: var(--accent);
+  box-shadow: 0 0 0 6px color-mix(in srgb, var(--accent) 18%, transparent);
+}
+
+.resumeTimelineHead {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
+.resumeRoleList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.resumeTimelineSummary {
+  margin-top: 0.9rem;
+  line-height: 1.8;
+}
+
+.resumeDetailList {
+  margin-top: 1rem;
+  display: grid;
+  gap: 0.85rem;
+}
+
+.resumeDetailCard {
+  padding: 1rem;
+}
+
+.resumeDetailHead h4 {
+  font-size: 1.05rem;
+  font-weight: 600;
+}
+
+.resumeDetailCard p,
+.resumeEducationCard p {
+  margin-top: 0.7rem;
+  line-height: 1.75;
+}
+
+.resumeEducationCard h3 {
+  margin-top: 0.7rem;
+  font-size: 1.15rem;
+  font-weight: 600;
+}
+
+@keyframes orbitFloat {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+
+  50% {
+    transform: translate3d(0, 12px, 0);
+  }
+}
+
+@media (min-width: 768px) {
+  .resumeHero {
+    grid-template-columns: minmax(0, 1.45fr) minmax(320px, 0.88fr);
+    padding: 1.9rem;
+  }
+
+  .resumeSection {
+    padding: 1.9rem;
+  }
+
+  .resumeSkillsGrid,
+  .resumeArchiveGrid,
+  .resumeEducationGrid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1024px) {
+  .resumeTopbar {
+    padding-top: 1.1rem;
+  }
+
+  .resumeContainer {
+    gap: 1.75rem;
+    padding-top: 1.75rem;
+    padding-bottom: 4.5rem;
+  }
+
+  .resumeProjectCard {
+    padding: 1.6rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .resumeTopbar {
+    padding-top: 0.75rem;
+  }
+
+  .resumeTopbarInner {
+    border-radius: 1.4rem;
+    align-items: flex-start;
+    flex-direction: column;
+    padding: 0.85rem;
+  }
+
+  .resumeBrand {
+    font-size: 0.72rem;
+    letter-spacing: 0.22em;
+  }
+
+  .resumeTopbarActions {
+    width: 100%;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+  }
+
+  .resumeNav {
+    width: 100%;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    overflow-x: auto;
+    padding-bottom: 0.2rem;
+    padding-right: 0.2rem;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .resumeNav::-webkit-scrollbar {
+    display: none;
+  }
+
+  .resumeContainer {
+    gap: 1rem;
+    padding-top: 1rem;
+    padding-bottom: 3rem;
+  }
+
+  .resumeHero,
+  .resumeSection {
+    border-radius: 1.5rem;
+  }
+
+  .resumeHero {
+    gap: 0.9rem;
+    padding: 0.9rem;
+  }
+
+  .resumeHeroCopy,
+  .resumeHeroPanel {
+    border-radius: 1.3rem;
+  }
+
+  .resumeHeroCopy {
+    padding: 1.35rem;
+  }
+
+  .resumeHeroPanel,
+  .resumeInfoCard,
+  .resumeSkillCard,
+  .resumeArchiveCard,
+  .resumeProjectCard,
+  .resumeTimelineItem,
+  .resumeDetailCard,
+  .resumeEducationCard {
+    border-radius: 1.2rem;
+  }
+
+  .resumeHeroOrbit {
+    display: none;
+  }
+
+  .resumeAboutGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .resumeHighlightGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .resumeEyebrow {
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+  }
+
+  .resumeHero h1 {
+    max-width: none;
+    margin-top: 0.8rem;
+    font-size: clamp(2.2rem, 1.4rem + 5vw, 3.3rem);
+    line-height: 1;
+  }
+
+  .resumeHeroDescription {
+    margin-top: 1rem;
+    font-size: 0.94rem;
+    line-height: 1.75;
+  }
+
+  .resumeHeroActions {
+    margin-top: 1.2rem;
+    gap: 0.65rem;
+  }
+
+  .resumeButton {
+    width: 100%;
+    padding: 0.85rem 1rem;
+  }
+
+  .resumeHeroNote {
+    width: 100%;
+    margin-top: 1.2rem;
+    padding: 0.9rem 1rem;
+  }
+
+  .resumeSection {
+    padding: 1.15rem;
+  }
+
+  .resumeSectionHeading h2 {
+    max-width: none;
+    font-size: clamp(1.55rem, 1.2rem + 2vw, 2rem);
+  }
+
+  .resumeSectionDescription {
+    margin-top: 1rem;
+    font-size: 0.92rem;
+    line-height: 1.72;
+  }
+
+  .resumeAboutGrid,
+  .resumeSkillsGrid,
+  .resumeArchiveGrid,
+  .resumeEducationGrid,
+  .resumeProjectList,
+  .resumeTimeline {
+    gap: 0.8rem;
+    margin-top: 1.15rem;
+  }
+
+  .resumeProjectCard,
+  .resumeTimelineItem {
+    padding: 1rem;
+  }
+
+  .resumeProjectCard h3,
+  .resumeTimelineHead h3 {
+    font-size: 1.35rem;
+  }
+
+  .resumeProjectSummary,
+  .resumeTimelineSummary,
+  .resumeProjectBullets li,
+  .resumeDetailCard p,
+  .resumeArchiveCard p,
+  .resumeEducationCard p {
+    line-height: 1.68;
+    font-size: 0.93rem;
+  }
+
+  .resumeProjectBullets {
+    gap: 0.55rem;
+    padding-left: 1rem;
+  }
+
+  .resumeTimeline::before {
+    left: 0.78rem;
+  }
+
+  .resumeTimelineItem {
+    padding-left: 1.85rem;
+  }
+
+  .resumeTimelineItem::before {
+    left: 0.43rem;
+    top: 1.2rem;
+    height: 0.72rem;
+    width: 0.72rem;
+  }
+
+  .resumeProjectMeta,
+  .resumeDetailHead {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 480px) {
+  .resumeTopbar {
+    padding-top: 0.7rem;
+  }
+
+  .resumeContainer {
+    padding-top: 0.9rem;
+    padding-bottom: 2.6rem;
+  }
+
+  .resumeTopbarInner,
+  .resumeHero,
+  .resumeSection {
+    border-radius: 1.25rem;
+  }
+
+  .resumeHeroCopy,
+  .resumeHeroPanel,
+  .resumeInfoCard,
+  .resumeSkillCard,
+  .resumeArchiveCard,
+  .resumeProjectCard,
+  .resumeTimelineItem,
+  .resumeDetailCard,
+  .resumeEducationCard {
+    border-radius: 1rem;
+  }
+
+  .resumeNav a {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.84rem;
+  }
+
+  .resumeHeroCopy,
+  .resumeHeroPanel,
+  .resumeSection,
+  .resumeProjectCard,
+  .resumeTimelineItem {
+    padding: 0.95rem;
+  }
+
+  .resumeHero h1 {
+    font-size: 2rem;
+  }
+
+  .resumeHighlightGrid article,
+  .resumeDetailCard,
+  .resumeInfoCard,
+  .resumeSkillCard,
+  .resumeArchiveCard,
+  .resumeEducationCard {
+    padding: 0.9rem;
+  }
+}
