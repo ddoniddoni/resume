@@ -12,7 +12,7 @@ const navigationItems = [
 const profileFacts = [
   { label: '이름', value: '박상돈' },
   { label: '직무', value: '4년 차 Frontend Developer' },
-  { label: '위치', value: 'South Korea' },
+  { label: '위치', value: '서울시 송파구' },
   {
     label: '이메일',
     value: 'psdkei@naver.com',
