@@ -1,17 +1,17 @@
-"use client";
+'use client';
 
-import { useTheme } from "next-themes";
+import { useTheme } from 'next-themes';
 
-import styles from "./theme-toggle.module.css";
+import styles from './theme-toggle.module.css';
 
-type Theme = "light" | "dark";
+type Theme = 'light' | 'dark';
 
 export function ThemeToggle() {
   const { resolvedTheme, setTheme } = useTheme();
 
   function handleToggle() {
-    const currentTheme: Theme = resolvedTheme === "dark" ? "dark" : "light";
-    setTheme(currentTheme === "light" ? "dark" : "light");
+    const currentTheme: Theme = resolvedTheme === 'dark' ? 'dark' : 'light';
+    setTheme(currentTheme === 'light' ? 'dark' : 'light');
   }
 
   return (

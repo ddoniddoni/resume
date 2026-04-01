@@ -2,8 +2,8 @@
   position: relative;
   display: inline-grid;
   place-items: center;
-  height: 2.85rem;
-  width: 2.85rem;
+  block-size: 2.85rem;
+  inline-size: 2.85rem;
   flex-shrink: 0;
   border: 1px solid rgba(255, 255, 255, 0.14);
   border-radius: 999px;
@@ -32,16 +32,16 @@
   position: absolute;
   display: inline-grid;
   place-items: center;
-  height: 1.3rem;
-  width: 1.3rem;
+  block-size: 1.3rem;
+  inline-size: 1.3rem;
   transition:
     opacity 180ms ease,
     transform 220ms ease;
 }
 
 .icon svg {
-  height: 100%;
-  width: 100%;
+  block-size: 100%;
+  inline-size: 100%;
 }
 
 .sun {
@@ -56,12 +56,12 @@
   color: #d9e4ff;
 }
 
-:global([data-theme="dark"]) .sun {
+:global([data-theme='dark']) .sun {
   opacity: 0;
   transform: scale(0.72) rotate(18deg);
 }
 
-:global([data-theme="dark"]) .moon {
+:global([data-theme='dark']) .moon {
   opacity: 1;
   transform: scale(1) rotate(0deg);
 }
@@ -69,7 +69,7 @@
 @media (max-width: 767px) {
   .toggle {
     align-self: flex-end;
-    height: 2.6rem;
-    width: 2.6rem;
+    block-size: 2.6rem;
+    inline-size: 2.6rem;
   }
 }

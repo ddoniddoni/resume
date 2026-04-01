@@ -1,19 +1,20 @@
 .resumeShell {
-  min-height: 100vh;
+  min-block-size: 100vh;
 }
 
 .resumeTopbar {
   position: sticky;
-  top: 0;
+  inset-block-start: 0;
   z-index: 30;
-  padding: 1rem var(--page-gutter) 0;
+  padding-block-start: 1rem;
+  padding-inline: var(--page-gutter);
 }
 
 .resumeTopbarInner {
   margin: 0 auto;
   display: flex;
-  width: 100%;
-  max-width: var(--page-max-width);
+  inline-size: 100%;
+  max-inline-size: var(--page-max-width);
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
@@ -28,7 +29,7 @@
 }
 
 .resumeBrand {
-  font-size: 0.78rem;
+  font-size: 12px;
   font-weight: 700;
   letter-spacing: 0.28em;
   color: var(--nav-text);
@@ -38,7 +39,7 @@
 
 .resumeTopbarActions {
   flex: 1;
-  min-width: 0;
+  min-inline-size: 0;
   display: flex;
   align-items: center;
   justify-content: flex-end;
@@ -47,7 +48,7 @@
 
 .resumeNav {
   display: flex;
-  min-width: 0;
+  min-inline-size: 0;
   flex-wrap: wrap;
   justify-content: flex-end;
   gap: 0.4rem;
@@ -56,7 +57,7 @@
 .resumeNav a {
   border-radius: 999px;
   padding: 0.55rem 0.85rem;
-  font-size: 0.9rem;
+  font-size: 14px;
   color: var(--nav-text);
   white-space: nowrap;
   transition:
@@ -73,11 +74,12 @@
 .resumeContainer {
   margin: 0 auto;
   display: flex;
-  width: 100%;
-  max-width: var(--page-max-width);
+  inline-size: 100%;
+  max-inline-size: var(--page-max-width);
   flex-direction: column;
   gap: 1.5rem;
-  padding: 1.5rem var(--page-gutter) 4rem;
+  padding-block: 1.5rem 4rem;
+  padding-inline: var(--page-gutter);
   scroll-margin-block-start: var(--anchor-offset);
 }
 
@@ -85,16 +87,9 @@
 .resumeSection {
   scroll-margin-block-start: var(--anchor-offset);
   border: 1px solid var(--border-soft);
-  background: var(--surface);
-  backdrop-filter: blur(22px);
   border-radius: 2rem;
-  box-shadow:
-    var(--shadow-lg),
-    inset 0 1px 0 rgba(255, 255, 255, 0.08);
   transition:
-    background-color 220ms ease,
     border-color 220ms ease,
-    box-shadow 220ms ease,
     transform 220ms ease;
 }
 
@@ -128,15 +123,23 @@
   content: "";
   position: absolute;
   inset: auto -10% -30% auto;
-  height: 220px;
-  width: 220px;
+  block-size: 220px;
+  inline-size: 220px;
   border-radius: 999px;
-  background: radial-gradient(circle, rgba(255, 221, 201, 0.42), transparent 68%);
+  background: radial-gradient(
+    circle,
+    rgba(255, 221, 201, 0.42),
+    transparent 68%
+  );
   filter: blur(6px);
 }
 
 :global([data-theme="dark"]) .resumeHeroCopy::after {
-  background: radial-gradient(circle, rgba(136, 164, 255, 0.42), transparent 68%);
+  background: radial-gradient(
+    circle,
+    rgba(136, 164, 255, 0.42),
+    transparent 68%
+  );
 }
 
 .resumeHeroOrbit {
@@ -147,25 +150,25 @@
 }
 
 .resumeHeroOrbitOne {
-  top: -3rem;
-  right: -2rem;
-  height: 16rem;
-  width: 16rem;
+  inset-block-start: -3rem;
+  inset-inline-end: -2rem;
+  block-size: 16rem;
+  inline-size: 16rem;
   animation: orbitFloat 8s ease-in-out infinite;
 }
 
 .resumeHeroOrbitTwo {
-  bottom: -5rem;
-  right: 12rem;
-  height: 8rem;
-  width: 8rem;
+  inset-block-end: -5rem;
+  inset-inline-end: 12rem;
+  block-size: 8rem;
+  inline-size: 8rem;
   animation: orbitFloat 6.4s ease-in-out infinite reverse;
 }
 
 .resumeEyebrow {
   position: relative;
   z-index: 1;
-  font-size: 0.78rem;
+  font-size: 12px;
   font-weight: 700;
   letter-spacing: 0.28em;
   text-transform: uppercase;
@@ -175,9 +178,8 @@
 .resumeHero h1 {
   position: relative;
   z-index: 1;
-  margin-top: 1rem;
-  max-width: 10ch;
-  font-size: clamp(2.9rem, 1.8rem + 4vw, 5.6rem);
+  margin-block-start: 1rem;
+  font-size: 64px;
   line-height: 0.94;
   letter-spacing: -0.06em;
 }
@@ -185,9 +187,9 @@
 .resumeHeroDescription {
   position: relative;
   z-index: 1;
-  margin-top: 1.3rem;
-  max-width: 52ch;
-  font-size: 1rem;
+  margin-block-start: 1.3rem;
+  max-inline-size: 52ch;
+  font-size: 16px;
   line-height: 1.9;
   color: var(--hero-muted);
 }
@@ -195,7 +197,7 @@
 .resumeHeroActions {
   position: relative;
   z-index: 1;
-  margin-top: 1.75rem;
+  margin-block-start: 1.75rem;
   display: flex;
   flex-wrap: wrap;
   gap: 0.8rem;
@@ -207,7 +209,7 @@
   justify-content: center;
   border-radius: 999px;
   padding: 0.9rem 1.2rem;
-  font-size: 0.96rem;
+  font-size: 15px;
   font-weight: 600;
   transition:
     transform 160ms ease,
@@ -239,7 +241,7 @@
 .resumeHeroNote {
   position: relative;
   z-index: 1;
-  margin-top: 1.8rem;
+  margin-block-start: 1.8rem;
   display: inline-flex;
   flex-direction: column;
   gap: 0.45rem;
@@ -251,7 +253,7 @@
 }
 
 .resumeHeroNote span {
-  font-size: 0.76rem;
+  font-size: 12px;
   font-weight: 700;
   letter-spacing: 0.18em;
   text-transform: uppercase;
@@ -259,7 +261,7 @@
 }
 
 .resumeHeroNote p {
-  max-width: 32ch;
+  max-inline-size: 32ch;
   line-height: 1.65;
   color: var(--hero-text);
 }
@@ -292,14 +294,22 @@
   content: "";
   position: absolute;
   inset: auto auto -2rem -2rem;
-  height: 7rem;
-  width: 7rem;
+  block-size: 7rem;
+  inline-size: 7rem;
   border-radius: 999px;
-  background: radial-gradient(circle, rgba(197, 111, 71, 0.24), transparent 70%);
+  background: radial-gradient(
+    circle,
+    rgba(197, 111, 71, 0.24),
+    transparent 70%
+  );
 }
 
 :global([data-theme="dark"]) .resumeHeroPanel::before {
-  background: radial-gradient(circle, rgba(136, 164, 255, 0.24), transparent 70%);
+  background: radial-gradient(
+    circle,
+    rgba(136, 164, 255, 0.24),
+    transparent 70%
+  );
 }
 
 .resumeHeroPanelHeader {
@@ -313,7 +323,7 @@
 
 .resumeHeroPanelHeader p,
 .resumeHeroPanelHeader span {
-  font-size: 0.82rem;
+  font-size: 13px;
   font-weight: 700;
   letter-spacing: 0.18em;
   text-transform: uppercase;
@@ -330,7 +340,7 @@
 .resumeFacts {
   position: relative;
   z-index: 1;
-  margin-top: 1rem;
+  margin-block-start: 1rem;
   display: grid;
   gap: 0.8rem;
 }
@@ -338,13 +348,13 @@
 .resumeFacts li {
   display: grid;
   gap: 0.28rem;
-  padding-bottom: 0.8rem;
-  border-bottom: 1px solid rgba(128, 128, 128, 0.12);
+  padding-block-end: 0.8rem;
+  border-block-end: 1px solid rgba(128, 128, 128, 0.12);
 }
 
 .resumeFacts li:last-child {
-  padding-bottom: 0;
-  border-bottom: 0;
+  padding-block-end: 0;
+  border-block-end: 0;
 }
 
 .resumeFacts span,
@@ -354,7 +364,7 @@
 .resumeDetailHead span,
 .resumeTimelineHead p,
 .resumeArchiveCard span {
-  font-size: 0.78rem;
+  font-size: 12px;
   font-weight: 700;
   letter-spacing: 0.16em;
   text-transform: uppercase;
@@ -371,7 +381,7 @@
 
 .resumeFacts strong,
 .resumeFacts a {
-  font-size: 1rem;
+  font-size: 16px;
   line-height: 1.55;
   color: var(--foreground);
 }
@@ -386,7 +396,7 @@
 .resumeHighlightGrid {
   position: relative;
   z-index: 1;
-  margin-top: 1.25rem;
+  margin-block-start: 1.25rem;
   display: grid;
   gap: 0.75rem;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -405,8 +415,8 @@
 
 .resumeHighlightGrid strong {
   display: block;
-  margin-top: 0.5rem;
-  font-size: 1.15rem;
+  margin-block-start: 0.5rem;
+  font-size: 18px;
   color: var(--foreground);
 }
 
@@ -417,18 +427,11 @@
 }
 
 .resumeSection::after {
-  content: "";
-  position: absolute;
-  inset: auto -5rem -5rem auto;
-  height: 12rem;
-  width: 12rem;
-  border-radius: 999px;
-  background: radial-gradient(circle, rgba(197, 111, 71, 0.08), transparent 70%);
-  pointer-events: none;
+  content: none;
 }
 
 :global([data-theme="dark"]) .resumeSection::after {
-  background: radial-gradient(circle, rgba(136, 164, 255, 0.08), transparent 70%);
+  content: none;
 }
 
 .resumeSectionHeading {
@@ -440,7 +443,7 @@
 }
 
 .resumeSectionHeading p {
-  font-size: 0.78rem;
+  font-size: 12px;
   font-weight: 700;
   letter-spacing: 0.24em;
   text-transform: uppercase;
@@ -448,8 +451,7 @@
 }
 
 .resumeSectionHeading h2 {
-  max-width: 18ch;
-  font-size: clamp(1.8rem, 1.3rem + 1.4vw, 2.7rem);
+  font-size: 40px;
   line-height: 1.05;
   font-weight: 600;
   color: var(--foreground);
@@ -458,9 +460,8 @@
 .resumeSectionDescription {
   position: relative;
   z-index: 1;
-  margin-top: 1.4rem;
-  max-width: 72ch;
-  font-size: 0.98rem;
+  margin-block-start: 1.4rem;
+  font-size: 16px;
   line-height: 1.85;
   color: var(--ink-muted);
 }
@@ -471,7 +472,7 @@
 .resumeEducationGrid {
   position: relative;
   z-index: 1;
-  margin-top: 1.5rem;
+  margin-block-start: 1.5rem;
   display: grid;
   gap: 1rem;
 }
@@ -501,18 +502,18 @@
 .resumeInfoCard strong,
 .resumeInfoCard a {
   display: block;
-  margin-top: 0.5rem;
-  font-size: 1.05rem;
+  margin-block-start: 0.5rem;
+  font-size: 17px;
   line-height: 1.5;
 }
 
 .resumeSkillCard h3 {
-  font-size: 1.2rem;
+  font-size: 19px;
   font-weight: 600;
 }
 
 .resumeTagList {
-  margin-top: 1rem;
+  margin-block-start: 1rem;
   display: flex;
   flex-wrap: wrap;
   gap: 0.6rem;
@@ -523,7 +524,7 @@
   border-radius: 999px;
   background: var(--accent-soft);
   padding: 0.45rem 0.75rem;
-  font-size: 0.88rem;
+  font-size: 14px;
   color: var(--foreground);
 }
 
@@ -550,8 +551,8 @@
 
 .resumeArchiveCard strong {
   display: block;
-  margin-top: 0.85rem;
-  font-size: 1.08rem;
+  margin-block-start: 0.85rem;
+  font-size: 17px;
   line-height: 1.45;
 }
 
@@ -565,7 +566,7 @@
 }
 
 .resumeArchiveCard p {
-  margin-top: 0.85rem;
+  margin-block-start: 0.85rem;
   line-height: 1.75;
 }
 
@@ -573,7 +574,7 @@
 .resumeTimeline {
   position: relative;
   z-index: 1;
-  margin-top: 1.5rem;
+  margin-block-start: 1.5rem;
   display: grid;
   gap: 1rem;
 }
@@ -593,22 +594,22 @@
 
 .resumeProjectCard h3,
 .resumeTimelineHead h3 {
-  margin-top: 0.8rem;
-  font-size: clamp(1.55rem, 1.15rem + 1vw, 2.05rem);
+  margin-block-start: 0.8rem;
+  font-size: 30px;
   font-weight: 600;
 }
 
 .resumeProjectSummary {
-  margin-top: 0.9rem;
-  max-width: 68ch;
+  margin-block-start: 0.9rem;
+  max-inline-size: 68ch;
   line-height: 1.8;
 }
 
 .resumeProjectBullets {
-  margin-top: 1rem;
+  margin-block-start: 1rem;
   display: grid;
   gap: 0.65rem;
-  padding-left: 1.2rem;
+  padding-inline-start: 1.2rem;
 }
 
 .resumeProjectBullets li {
@@ -616,7 +617,7 @@
 }
 
 .resumeProjectFooter {
-  margin-top: 1.1rem;
+  margin-block-start: 1.1rem;
   display: flex;
   flex-direction: column;
   gap: 1rem;
@@ -640,25 +641,24 @@
 .resumeTimeline::before {
   content: "";
   position: absolute;
-  left: 1rem;
-  top: 0.75rem;
-  bottom: 0.75rem;
-  width: 1px;
+  inset-block: 0.75rem;
+  inset-inline-start: 1rem;
+  inline-size: 1px;
   background: linear-gradient(180deg, transparent, var(--accent), transparent);
 }
 
 .resumeTimelineItem {
   position: relative;
-  padding-left: 2.2rem;
+  padding-inline-start: 2.2rem;
 }
 
 .resumeTimelineItem::before {
   content: "";
   position: absolute;
-  left: 0.65rem;
-  top: 1.45rem;
-  height: 0.8rem;
-  width: 0.8rem;
+  inset-block-start: 1.45rem;
+  inset-inline-start: 0.65rem;
+  block-size: 0.8rem;
+  inline-size: 0.8rem;
   border-radius: 999px;
   background: var(--accent);
   box-shadow: 0 0 0 6px color-mix(in srgb, var(--accent) 18%, transparent);
@@ -677,12 +677,12 @@
 }
 
 .resumeTimelineSummary {
-  margin-top: 0.9rem;
+  margin-block-start: 0.9rem;
   line-height: 1.8;
 }
 
 .resumeDetailList {
-  margin-top: 1rem;
+  margin-block-start: 1rem;
   display: grid;
   gap: 0.85rem;
 }
@@ -692,19 +692,19 @@
 }
 
 .resumeDetailHead h4 {
-  font-size: 1.05rem;
+  font-size: 17px;
   font-weight: 600;
 }
 
 .resumeDetailCard p,
 .resumeEducationCard p {
-  margin-top: 0.7rem;
+  margin-block-start: 0.7rem;
   line-height: 1.75;
 }
 
 .resumeEducationCard h3 {
-  margin-top: 0.7rem;
-  font-size: 1.15rem;
+  margin-block-start: 0.7rem;
+  font-size: 18px;
   font-weight: 600;
 }
 
@@ -738,13 +738,12 @@
 
 @media (min-width: 1024px) {
   .resumeTopbar {
-    padding-top: 1.1rem;
+    padding-block-start: 1.1rem;
   }
 
   .resumeContainer {
     gap: 1.75rem;
-    padding-top: 1.75rem;
-    padding-bottom: 4.5rem;
+    padding-block: 1.75rem 4.5rem;
   }
 
   .resumeProjectCard {
@@ -754,7 +753,7 @@
 
 @media (max-width: 767px) {
   .resumeTopbar {
-    padding-top: 0.75rem;
+    padding-block-start: 0.75rem;
   }
 
   .resumeTopbarInner {
@@ -765,24 +764,24 @@
   }
 
   .resumeBrand {
-    font-size: 0.72rem;
+    font-size: 11px;
     letter-spacing: 0.22em;
   }
 
   .resumeTopbarActions {
-    width: 100%;
+    inline-size: 100%;
     flex-direction: column;
     align-items: stretch;
     justify-content: flex-start;
   }
 
   .resumeNav {
-    width: 100%;
+    inline-size: 100%;
     flex-wrap: nowrap;
     justify-content: flex-start;
     overflow-x: auto;
-    padding-bottom: 0.2rem;
-    padding-right: 0.2rem;
+    padding-block-end: 0.2rem;
+    padding-inline-end: 0.2rem;
     -ms-overflow-style: none;
     scrollbar-width: none;
   }
@@ -793,8 +792,7 @@
 
   .resumeContainer {
     gap: 1rem;
-    padding-top: 1rem;
-    padding-bottom: 3rem;
+    padding-block: 1rem 3rem;
   }
 
   .resumeHero,
@@ -840,36 +838,36 @@
   }
 
   .resumeEyebrow {
-    font-size: 0.7rem;
+    font-size: 11px;
     letter-spacing: 0.2em;
   }
 
   .resumeHero h1 {
-    max-width: none;
-    margin-top: 0.8rem;
-    font-size: clamp(2.2rem, 1.4rem + 5vw, 3.3rem);
+    max-inline-size: none;
+    margin-block-start: 0.8rem;
+    font-size: 40px;
     line-height: 1;
   }
 
   .resumeHeroDescription {
-    margin-top: 1rem;
-    font-size: 0.94rem;
+    margin-block-start: 1rem;
+    font-size: 15px;
     line-height: 1.75;
   }
 
   .resumeHeroActions {
-    margin-top: 1.2rem;
+    margin-block-start: 1.2rem;
     gap: 0.65rem;
   }
 
   .resumeButton {
-    width: 100%;
+    inline-size: 100%;
     padding: 0.85rem 1rem;
   }
 
   .resumeHeroNote {
-    width: 100%;
-    margin-top: 1.2rem;
+    inline-size: 100%;
+    margin-block-start: 1.2rem;
     padding: 0.9rem 1rem;
   }
 
@@ -878,13 +876,13 @@
   }
 
   .resumeSectionHeading h2 {
-    max-width: none;
-    font-size: clamp(1.55rem, 1.2rem + 2vw, 2rem);
+    max-inline-size: none;
+    font-size: 30px;
   }
 
   .resumeSectionDescription {
-    margin-top: 1rem;
-    font-size: 0.92rem;
+    margin-block-start: 1rem;
+    font-size: 15px;
     line-height: 1.72;
   }
 
@@ -895,7 +893,7 @@
   .resumeProjectList,
   .resumeTimeline {
     gap: 0.8rem;
-    margin-top: 1.15rem;
+    margin-block-start: 1.15rem;
   }
 
   .resumeProjectCard,
@@ -905,7 +903,7 @@
 
   .resumeProjectCard h3,
   .resumeTimelineHead h3 {
-    font-size: 1.35rem;
+    font-size: 22px;
   }
 
   .resumeProjectSummary,
@@ -915,27 +913,27 @@
   .resumeArchiveCard p,
   .resumeEducationCard p {
     line-height: 1.68;
-    font-size: 0.93rem;
+    font-size: 15px;
   }
 
   .resumeProjectBullets {
     gap: 0.55rem;
-    padding-left: 1rem;
+    padding-inline-start: 1rem;
   }
 
   .resumeTimeline::before {
-    left: 0.78rem;
+    inset-inline-start: 0.78rem;
   }
 
   .resumeTimelineItem {
-    padding-left: 1.85rem;
+    padding-inline-start: 1.85rem;
   }
 
   .resumeTimelineItem::before {
-    left: 0.43rem;
-    top: 1.2rem;
-    height: 0.72rem;
-    width: 0.72rem;
+    inset-inline-start: 0.43rem;
+    inset-block-start: 1.2rem;
+    block-size: 0.72rem;
+    inline-size: 0.72rem;
   }
 
   .resumeProjectMeta,
@@ -946,12 +944,11 @@
 
 @media (max-width: 480px) {
   .resumeTopbar {
-    padding-top: 0.7rem;
+    padding-block-start: 0.7rem;
   }
 
   .resumeContainer {
-    padding-top: 0.9rem;
-    padding-bottom: 2.6rem;
+    padding-block: 0.9rem 2.6rem;
   }
 
   .resumeTopbarInner,
@@ -974,7 +971,7 @@
 
   .resumeNav a {
     padding: 0.5rem 0.75rem;
-    font-size: 0.84rem;
+    font-size: 13px;
   }
 
   .resumeHeroCopy,
@@ -986,7 +983,7 @@
   }
 
   .resumeHero h1 {
-    font-size: 2rem;
+    font-size: 32px;
   }
 
   .resumeHighlightGrid article,
