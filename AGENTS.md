@@ -43,6 +43,16 @@
 - Keep server and client responsibilities clear.
 - Prefer server-side logic when it naturally fits the feature.
 
+### Git commit message rules
+
+- Use the `type(scope): description` format for commit messages.
+- Prefer lowercase English for `type` and `scope`.
+- Keep the description concise and specific.
+- Prefer Korean descriptions when working in this repository unless there is a strong reason not to.
+- Examples:
+  - `feat(resume): 포트폴리오 레이아웃 및 앵커 스크롤 개선`
+  - `docs(readme): 현재 이력서 포트폴리오 정보로 업데이트`
+
 ## Next.js guidelines
 
 - Use the App Router conventions already present in the project.
