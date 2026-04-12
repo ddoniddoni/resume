@@ -4,14 +4,13 @@ import styles from './page.module.css';
 const navigationItems = [
   { id: 'about', label: 'About Me' },
   { id: 'skills', label: 'Skills' },
-  { id: 'archiving', label: 'Archiving' },
   { id: 'career', label: 'Career' },
   { id: 'education', label: 'Education' },
 ];
 
 const profileFacts = [
   { label: '이름', value: '박상돈' },
-  { label: '직무', value: '4년 차 Frontend Developer' },
+  { label: '직무', value: 'Frontend Developer' },
   { label: '위치', value: '서울시 송파구' },
   {
     label: '이메일',
@@ -28,11 +27,20 @@ const profileFacts = [
 const skillGroups = [
   {
     category: 'Framework',
-    items: ['Next.js', 'React', 'Angular', 'TypeScript', 'JavaScript', 'App Router'],
+    items: ['Next.js', 'Angular', 'TypeScript', 'JavaScript'],
   },
   {
     category: 'UI & State',
-    items: ['Recoil', 'Sass', 'CSS Modules', 'Responsive UI', 'REST API', 'i18n'],
+    items: [
+      'Recoil',
+      'Jotai',
+      'TanStack Query',
+      'Sass',
+      'CSS Modules',
+      'Responsive UI',
+      'REST API',
+      'i18n',
+    ],
   },
   {
     category: 'Strength',
@@ -44,14 +52,6 @@ const skillGroups = [
       '운영 이슈 대응',
       '문서화',
     ],
-  },
-];
-
-const archivingLinks = [
-  {
-    title: 'GitHub',
-    href: 'https://github.com/ddoniddoni',
-    description: '개인 학습과 실험, 프론트엔드 구현 기록을 정리하는 아카이브입니다.',
   },
 ];
 
@@ -131,7 +131,7 @@ const educationItems = [
 ];
 
 const heroHighlights = [
-  { label: 'Experience', value: '4 Years' },
+  { label: 'Experience', value: '5 Years' },
   { label: 'Domain', value: 'Platform / SDDC' },
   { label: 'Focus', value: 'UI/UX + Perf' },
 ];
@@ -175,7 +175,7 @@ export default function Home() {
               프론트엔드를 만듭니다.
             </h1>
             <p className={styles.resumeHeroDescription}>
-              안녕하세요. 4년 차 프론트엔드 개발자 박상돈입니다. Next.js, React,
+              안녕하세요. 5년 차 프론트엔드 개발자 박상돈입니다. Next.js, React,
               Angular 기반 서비스에서 UI/UX 개선, 성능 최적화, 공통 컴포넌트 설계,
               운영 이슈 대응을 꾸준히 맡아왔습니다.
             </p>
@@ -274,28 +274,6 @@ export default function Home() {
                   ))}
                 </div>
               </article>
-            ))}
-          </div>
-        </section>
-
-        <section id="archiving" className={styles.resumeSection}>
-          <div className={styles.resumeSectionHeading}>
-            <p>Archiving</p>
-            <h2>코드와 기록을 확인할 수 있는 링크</h2>
-          </div>
-          <div className={styles.resumeArchiveGrid}>
-            {archivingLinks.map((item) => (
-              <a
-                key={item.title}
-                className={styles.resumeArchiveCard}
-                href={item.href}
-                target="_blank"
-                rel="noreferrer"
-              >
-                <span>{item.title}</span>
-                <strong>{item.href.replace('https://', '')}</strong>
-                <p>{item.description}</p>
-              </a>
             ))}
           </div>
         </section>
